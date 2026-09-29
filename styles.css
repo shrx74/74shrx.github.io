@@ -208,21 +208,6 @@ nav a:hover {
   font-size: 16px;
 }
 
-.about-meta {
-  margin-top: 26px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.about-meta span {
-  padding: 7px 10px;
-  border: 1px solid var(--line);
-  color: #9d9d9d;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 11px;
-}
-
 .contact-list {
   margin-top: 30px;
   border-top: 1px solid var(--line);
