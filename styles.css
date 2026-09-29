@@ -288,23 +288,6 @@ nav a:hover {
   font-size: 14px;
 }
 
-.project-tags {
-  margin-top: 12px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.project-tags span {
-  padding: 4px 7px;
-  border: 1px solid #2c2c2c;
-  border-radius: 3px;
-  background: #0d0d0d;
-  color: #9a9a9a;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 10px;
-  line-height: 1.2;
-}
 
 .project-text > a {
   color: #6ea8fe;
