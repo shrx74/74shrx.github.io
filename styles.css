@@ -131,60 +131,102 @@ nav a:hover {
   transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
 }
 
-.project:has(.video-native) {
-  cursor: pointer;
+.project:has(.youtube-player) {
+  cursor: default;
 }
 
-.project:has(.video-native):hover {
+.project:has(.youtube-player):hover {
   transform: translateY(-3px);
   border-color: #3b3b3b;
   background: #121212;
 }
 
-.project:has(.video-native):hover .project-text h3 {
+.project:has(.youtube-player):hover .project-text h3 {
   color: #ffffff;
 }
 
-.video-native,
-.video-placeholder {
-  aspect-ratio: 16 / 10;
-}
-
-.video-native {
+.youtube-player {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
   background: #080808;
   border-bottom: 1px solid var(--line);
+}
+
+.youtube-preview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: #080808;
+  cursor: pointer;
   overflow: hidden;
 }
 
-.video-native video {
+.youtube-preview::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.14);
+  transition: background 160ms ease;
+}
+
+.youtube-preview:hover::after {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.youtube-preview img {
   width: 100%;
   height: 100%;
   display: block;
   object-fit: cover;
-  background: #080808;
+  transition: transform 220ms ease;
 }
 
-.video-placeholder {
-  position: relative;
-  display: grid;
-  place-items: center;
-  background: #0d0d0d;
-  border-bottom: 1px solid var(--line);
-  color: #555;
+.youtube-preview:hover img {
+  transform: scale(1.015);
 }
 
-.video-placeholder span {
+.youtube-play {
   position: absolute;
-  left: 16px;
-  top: 14px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 11px;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 58px;
+  height: 58px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: rgba(8, 8, 8, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
 }
 
-.video-placeholder p {
-  margin: 0;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 12px;
+.youtube-play::after {
+  content: "";
+  position: absolute;
+  left: 23px;
+  top: 18px;
+  width: 0;
+  height: 0;
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+  border-left: 17px solid #ffffff;
+}
+
+.youtube-preview:hover .youtube-play {
+  transform: translate(-50%, -50%) scale(1.06);
+  background: rgba(14, 14, 14, 0.94);
+  border-color: rgba(255, 255, 255, 0.38);
+}
+
+.youtube-player iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
 }
 
 .project-text {
@@ -370,102 +412,3 @@ footer {
   }
 }
 
-body.modal-open {
-  overflow: hidden;
-}
-
-.project-modal[hidden] {
-  display: none;
-}
-
-.project-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  display: grid;
-  place-items: center;
-  padding: 28px;
-}
-
-.project-modal-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.88);
-  backdrop-filter: blur(6px);
-}
-
-.project-modal-panel {
-  position: relative;
-  z-index: 1;
-  width: min(1180px, 94vw);
-  max-height: 92vh;
-  overflow: auto;
-  background: #0d0d0d;
-  border: 1px solid #303030;
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
-}
-
-.project-modal-media {
-  aspect-ratio: 16 / 10;
-  background: #080808;
-  overflow: hidden;
-}
-
-.project-modal-media video {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: contain;
-  background: #080808;
-}
-
-.project-modal-copy {
-  padding: 22px 24px 26px;
-}
-
-.project-modal-copy h3 {
-  margin: 0 0 7px;
-  font-size: 22px;
-}
-
-.project-modal-copy p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.project-modal-close {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  z-index: 2;
-  width: 36px;
-  height: 36px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(8, 8, 8, 0.78);
-  color: #eeeeee;
-  font: inherit;
-  font-size: 23px;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.project-modal-close:hover {
-  background: #181818;
-}
-
-@media (max-width: 650px) {
-  .project-modal {
-    padding: 12px;
-  }
-
-  .project-modal-panel {
-    width: 100%;
-  }
-
-  .project-modal-copy {
-    padding: 18px;
-  }
-}
