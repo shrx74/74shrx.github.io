@@ -83,11 +83,41 @@ nav a:hover {
   max-width: 760px;
 }
 
-.label {
+.hero-kicker {
   margin: 0 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.label {
   color: var(--muted);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 12px;
+}
+
+.availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 9px;
+  border: 1px solid rgba(88, 214, 126, 0.18);
+  border-radius: 999px;
+  background: rgba(88, 214, 126, 0.06);
+  color: #a7d9b4;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.availability-dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #58d67e;
+  box-shadow: 0 0 8px rgba(88, 214, 126, 0.8);
 }
 
 .hero h1 {
