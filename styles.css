@@ -207,14 +207,16 @@ nav a:hover {
 }
 
 .project-text > a {
-  color: #bbbbbb;
+  color: #6ea8fe;
   white-space: nowrap;
   font-size: 12px;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  text-underline-offset: 3px;
 }
 
 .project-text > a:hover {
-  color: var(--text);
+  color: #8bb9ff;
+  text-decoration: underline;
 }
 
 .skills-heading {
