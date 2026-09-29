@@ -123,6 +123,13 @@ nav a:hover {
   box-shadow: 0 0 6px rgba(88, 214, 126, 0.9), 0 0 14px rgba(88, 214, 126, 0.35);
 }
 
+.availability:hover,
+.availability:focus-visible {
+  border-color: rgba(88, 214, 126, 0.48);
+  background: rgba(88, 214, 126, 0.12);
+  color: #d0f2d8;
+}
+
 .hero h1 {
   margin: 0;
   font-size: clamp(44px, 7vw, 76px);
@@ -281,6 +288,24 @@ nav a:hover {
   font-size: 14px;
 }
 
+.project-tags {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.project-tags span {
+  padding: 4px 7px;
+  border: 1px solid #2c2c2c;
+  border-radius: 3px;
+  background: #0d0d0d;
+  color: #9a9a9a;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 10px;
+  line-height: 1.2;
+}
+
 .project-text > a {
   color: #6ea8fe;
   white-space: nowrap;
@@ -362,8 +387,15 @@ nav a:hover {
   font-size: 16px;
 }
 
+.contact-intro {
+  margin: 14px 0 0;
+  max-width: 560px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
 .contact-list {
-  margin-top: 30px;
+  margin-top: 24px;
   border-top: 1px solid var(--line);
 }
 
