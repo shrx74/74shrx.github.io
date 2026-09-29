@@ -47,20 +47,35 @@ footer {
 .name {
   font-weight: 700;
   font-size: 14px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 nav {
   display: flex;
   gap: 20px;
+  align-items: center;
 }
 
 nav a {
   color: var(--muted);
-  font-size: 13px;
+  font-size: 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 nav a:hover {
   color: var(--text);
+}
+
+.github-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.github-nav svg {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
 }
 
 .hero {
@@ -71,7 +86,7 @@ nav a:hover {
 .label {
   margin: 0 0 18px;
   color: var(--muted);
-  font-family: monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 12px;
 }
 
@@ -103,14 +118,6 @@ nav a:hover {
 
 .section-title {
   margin-bottom: 34px;
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-}
-
-.section-title span {
-  color: var(--muted);
-  font-size: 12px;
 }
 
 .projects {
@@ -137,13 +144,13 @@ nav a:hover {
   position: absolute;
   left: 16px;
   top: 14px;
-  font-family: monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 11px;
 }
 
 .video-placeholder p {
   margin: 0;
-  font-family: monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 12px;
 }
 
@@ -169,7 +176,8 @@ nav a:hover {
 .project-text > a {
   color: #bbbbbb;
   white-space: nowrap;
-  font-size: 13px;
+  font-size: 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 .project-text > a:hover {
@@ -232,17 +240,13 @@ footer {
   justify-content: space-between;
   align-items: center;
   color: #666;
-  font-family: monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 11px;
 }
 
 @media (min-width: 760px) {
   .projects {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .project:first-child {
-    grid-column: 1 / -1;
   }
 }
 
