@@ -131,35 +131,37 @@ nav a:hover {
   transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
 }
 
-.project:has(.video-embed) {
+.project:has(.video-native) {
   cursor: pointer;
 }
 
-.project:has(.video-embed):hover {
+.project:has(.video-native):hover {
   transform: translateY(-3px);
   border-color: #3b3b3b;
   background: #121212;
 }
 
-.project:has(.video-embed):hover .project-text h3 {
+.project:has(.video-native):hover .project-text h3 {
   color: #ffffff;
 }
 
-.video-embed,
+.video-native,
 .video-placeholder {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 10;
 }
 
-.video-embed {
-  background: #0d0d0d;
+.video-native {
+  background: #080808;
   border-bottom: 1px solid var(--line);
+  overflow: hidden;
 }
 
-.video-embed iframe {
+.video-native video {
   width: 100%;
   height: 100%;
   display: block;
-  border: 0;
+  object-fit: contain;
+  background: #080808;
 }
 
 .video-placeholder {
@@ -402,15 +404,16 @@ body.modal-open {
 }
 
 .project-modal-media {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 10;
   background: #080808;
 }
 
-.project-modal-media iframe {
+.project-modal-media video {
   width: 100%;
   height: 100%;
   display: block;
-  border: 0;
+  object-fit: contain;
+  background: #080808;
 }
 
 .project-modal-copy {
