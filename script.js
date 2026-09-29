@@ -35,6 +35,8 @@ document.querySelectorAll(".youtube-player").forEach((player) => {
   });
 
   const image = preview.querySelector("img");
+  image.src = image.dataset.src;
+
   image.addEventListener("error", () => {
     image.src = `https://i.ytimg.com/vi/${player.dataset.youtubeId}/hqdefault.jpg`;
   }, { once: true });
