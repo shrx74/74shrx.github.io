@@ -184,6 +184,37 @@ nav a:hover {
   color: var(--text);
 }
 
+.skills {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 700px);
+  gap: 50px;
+}
+
+.skills-list {
+  border-top: 1px solid var(--line);
+}
+
+.skills-list > div {
+  min-height: 52px;
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.skills-list span {
+  color: #555;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 10px;
+}
+
+.skills-list p {
+  margin: 0;
+  color: #c8c8c8;
+  font-size: 15px;
+}
+
 .about {
   display: grid;
   grid-template-columns: 180px minmax(0, 700px);
@@ -271,6 +302,7 @@ footer {
     padding: 70px 0;
   }
 
+  .skills,
   .about {
     grid-template-columns: 1fr;
     gap: 22px;
