@@ -148,6 +148,18 @@
     </section>
   </main>
 
+  <div class="project-modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="project-modal-backdrop" data-modal-close></div>
+    <div class="project-modal-panel">
+      <button class="project-modal-close" type="button" data-modal-close aria-label="Close project">×</button>
+      <div class="project-modal-media" id="modalMedia"></div>
+      <div class="project-modal-copy">
+        <h3 id="modalTitle"></h3>
+        <p id="modalDescription"></p>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <span>shrx74</span>
     <span>© <span id="year"></span></span>
