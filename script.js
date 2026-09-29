@@ -32,6 +32,10 @@ const closeProjectModal = () => {
   modalMedia.replaceChildren();
 };
 
+document.querySelectorAll(".video-native video").forEach((video) => {
+  video.addEventListener("contextmenu", (event) => event.preventDefault());
+});
+
 document.querySelectorAll(".project").forEach((project) => {
   const video = project.querySelector(".video-native video");
   if (!video) return;
@@ -45,6 +49,9 @@ document.querySelectorAll(".project").forEach((project) => {
     modalVideo.autoplay = true;
     modalVideo.playsInline = true;
     modalVideo.preload = "metadata";
+    modalVideo.setAttribute("controlslist", "nodownload noremoteplayback");
+    modalVideo.setAttribute("disablepictureinpicture", "");
+    modalVideo.addEventListener("contextmenu", (event) => event.preventDefault());
 
     modalMedia.replaceChildren(modalVideo);
     modalTitle.textContent = project.querySelector("h3")?.textContent ?? "";
