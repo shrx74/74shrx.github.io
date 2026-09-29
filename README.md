@@ -1,60 +1,23 @@
-# 74shrx.github.io
+# shrx74.github.io
 
-Personal developer portfolio for **74shrx**.
+Personal portfolio for **shrx74**.
 
-## Current stack
+The site is intentionally simple: plain HTML, CSS, and JavaScript with no frameworks.
 
-- Plain HTML
-- CSS
-- Vanilla JavaScript
-- GitHub Pages
+## Content
 
-## Portfolio structure
+- Intro
+- Five demo/project slots
+- About
+- Discord: `shrx74`
+- GitHub: `https://github.com/shrx74`
 
-The site is intentionally minimal and dark. It includes:
+## Videos
 
-- Developer intro
-- Five project/video showcase slots
-- A real GitHub link for the Roblox Data System project
-- About/toolbox section
-- Discord + GitHub contact section
-- Responsive mobile layout
-- Lightweight reveal animations
+The project slots are placeholders for now. They can be replaced with YouTube embeds or hosted video files later.
 
-## Updating the Discord username
+## GitHub Pages
 
-Open `index.html` and replace both instances of:
+After the repository is renamed to `shrx74.github.io`, GitHub Pages can publish it at:
 
-```
-YOUR_DISCORD_USERNAME
-```
-
-with the real Discord username.
-
-## Adding showcase videos
-
-Each project currently contains a `.video-slot` placeholder.
-
-For a locally hosted MP4, replace the contents of a slot with something like:
-
-```html
-<video controls preload="metadata">
-  <source src="assets/videos/project-01.mp4" type="video/mp4">
-</video>
-```
-
-Then add the video file under:
-
-```
-assets/videos/
-```
-
-For YouTube or another host, an embedded iframe can be used instead.
-
-## Publishing
-
-This repository is intended for GitHub Pages at:
-
-```
-https://74shrx.github.io
-```
+`https://shrx74.github.io`
