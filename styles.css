@@ -186,14 +186,41 @@ nav a:hover {
 
 .about {
   display: grid;
-  grid-template-columns: 180px minmax(0, 620px);
+  grid-template-columns: 180px minmax(0, 700px);
   gap: 50px;
 }
 
-.about p {
+.about-content {
+  max-width: 700px;
+}
+
+.about-main {
   margin: 0;
+  color: #d7d7d7;
+  font-size: 22px;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+}
+
+.about-extra {
+  margin: 18px 0 0;
   color: var(--muted);
-  font-size: 17px;
+  font-size: 16px;
+}
+
+.about-meta {
+  margin-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.about-meta span {
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  color: #9d9d9d;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
 }
 
 .contact-list {
@@ -201,7 +228,6 @@ nav a:hover {
   border-top: 1px solid var(--line);
 }
 
-.contact-list a,
 .contact-list button {
   width: 100%;
   min-height: 64px;
@@ -216,9 +242,6 @@ nav a:hover {
   background: transparent;
   text-align: left;
   font: inherit;
-}
-
-.contact-list button {
   cursor: pointer;
 }
 
@@ -268,12 +291,15 @@ footer {
     gap: 22px;
   }
 
+  .about-main {
+    font-size: 19px;
+  }
+
   .project-text {
     align-items: start;
     flex-direction: column;
   }
 
-  .contact-list a,
   .contact-list button {
     grid-template-columns: 72px 1fr auto;
   }
