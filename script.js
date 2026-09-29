@@ -24,23 +24,29 @@ const modalTitle = document.querySelector("#modalTitle");
 const modalDescription = document.querySelector("#modalDescription");
 
 const closeProjectModal = () => {
+  const video = modalMedia.querySelector("video");
+  if (video) video.pause();
+
   projectModal.hidden = true;
   document.body.classList.remove("modal-open");
   modalMedia.replaceChildren();
 };
 
 document.querySelectorAll(".project").forEach((project) => {
-  const iframe = project.querySelector(".video-embed iframe");
-  if (!iframe) return;
+  const video = project.querySelector(".video-native video");
+  if (!video) return;
 
   project.addEventListener("click", (event) => {
-    if (event.target.closest(".video-embed") || event.target.closest("a")) return;
+    if (event.target.closest(".video-native") || event.target.closest("a")) return;
 
-    const clone = iframe.cloneNode(true);
-    const separator = clone.src.includes("?") ? "&" : "?";
-    clone.src = clone.src + separator + "autoplay=1&rel=0";
+    const modalVideo = document.createElement("video");
+    modalVideo.src = video.currentSrc || video.src;
+    modalVideo.controls = true;
+    modalVideo.autoplay = true;
+    modalVideo.playsInline = true;
+    modalVideo.preload = "metadata";
 
-    modalMedia.replaceChildren(clone);
+    modalMedia.replaceChildren(modalVideo);
     modalTitle.textContent = project.querySelector("h3")?.textContent ?? "";
     modalDescription.textContent = project.querySelector(".project-text p")?.textContent ?? "";
 
