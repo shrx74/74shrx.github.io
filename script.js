@@ -18,56 +18,24 @@ copyButton.addEventListener("click", async () => {
   }, 1400);
 });
 
-const projectModal = document.querySelector("#projectModal");
-const modalMedia = document.querySelector("#modalMedia");
-const modalTitle = document.querySelector("#modalTitle");
-const modalDescription = document.querySelector("#modalDescription");
+document.querySelectorAll(".youtube-player").forEach((player) => {
+  const preview = player.querySelector(".youtube-preview");
 
-const closeProjectModal = () => {
-  const video = modalMedia.querySelector("video");
-  if (video) video.pause();
+  preview.addEventListener("click", () => {
+    const videoId = player.dataset.youtubeId;
+    const iframe = document.createElement("iframe");
 
-  projectModal.hidden = true;
-  document.body.classList.remove("modal-open");
-  modalMedia.replaceChildren();
-};
+    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1`;
+    iframe.title = preview.getAttribute("aria-label") ?? "Project demo";
+    iframe.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+    iframe.allowFullscreen = true;
+    iframe.referrerPolicy = "strict-origin-when-cross-origin";
 
-document.querySelectorAll(".video-native video").forEach((video) => {
-  video.addEventListener("contextmenu", (event) => event.preventDefault());
-});
-
-document.querySelectorAll(".project").forEach((project) => {
-  const video = project.querySelector(".video-native video");
-  if (!video) return;
-
-  project.addEventListener("click", (event) => {
-    if (event.target.closest(".video-native") || event.target.closest("a")) return;
-
-    const modalVideo = document.createElement("video");
-    modalVideo.src = video.currentSrc || video.src;
-    modalVideo.controls = true;
-    modalVideo.autoplay = true;
-    modalVideo.playsInline = true;
-    modalVideo.preload = "metadata";
-    modalVideo.setAttribute("controlslist", "nodownload noremoteplayback");
-    modalVideo.setAttribute("disablepictureinpicture", "");
-    modalVideo.addEventListener("contextmenu", (event) => event.preventDefault());
-
-    modalMedia.replaceChildren(modalVideo);
-    modalTitle.textContent = project.querySelector("h3")?.textContent ?? "";
-    modalDescription.textContent = project.querySelector(".project-text p")?.textContent ?? "";
-
-    projectModal.hidden = false;
-    document.body.classList.add("modal-open");
+    player.replaceChildren(iframe);
   });
-});
 
-projectModal.querySelectorAll("[data-modal-close]").forEach((element) => {
-  element.addEventListener("click", closeProjectModal);
-});
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && !projectModal.hidden) {
-    closeProjectModal();
-  }
+  const image = preview.querySelector("img");
+  image.addEventListener("error", () => {
+    image.src = `https://i.ytimg.com/vi/${player.dataset.youtubeId}/hqdefault.jpg`;
+  }, { once: true });
 });
