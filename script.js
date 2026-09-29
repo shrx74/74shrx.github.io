@@ -35,9 +35,12 @@ document.querySelectorAll(".youtube-player").forEach((player) => {
   });
 
   const image = preview.querySelector("img");
-  image.src = image.dataset.src;
 
   image.addEventListener("error", () => {
-    image.src = `https://i.ytimg.com/vi/${player.dataset.youtubeId}/hqdefault.jpg`;
-  }, { once: true });
+    if (!image.src.includes("hqdefault.jpg")) {
+      image.src = `https://i.ytimg.com/vi/${player.dataset.youtubeId}/hqdefault.jpg`;
+    }
+  });
+
+  image.src = image.dataset.src;
 });
